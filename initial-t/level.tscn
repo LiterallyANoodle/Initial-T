@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://kb0bji8udwst"]
+
+[ext_resource type="PackedScene" uid="uid://154e5y55isyu" path="res://torpedo.tscn" id="1_u52ul"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Torpedo" parent="." instance=ExtResource("1_u52ul")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01403, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.97307, 0.230508, 0, -0.230508, 0.97307, -0.160005, 1.6954, 4.01351)

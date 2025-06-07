@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Initial-T"
+run/main_scene="uid://kb0bji8udwst"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 

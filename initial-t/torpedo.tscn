@@ -1,8 +1,24 @@
-[gd_scene load_steps=7 format=3 uid="uid://154e5y55isyu"]
+[gd_scene load_steps=8 format=3 uid="uid://154e5y55isyu"]
 
 [ext_resource type="PackedScene" uid="uid://c6oia18xbpxcw" path="res://Assets/Torpedo.glb" id="1_ch1v4"]
+[ext_resource type="Script" uid="uid://b3bjq2d5u32tv" path="res://torpedo.gd" id="1_ongux"]
 [ext_resource type="Material" uid="uid://84omjy2t6h3f" path="res://Resources/mat_torpedo_1.tres" id="2_7xtdt"]
 [ext_resource type="Material" uid="uid://dy7145ceo10is" path="res://Resources/mat_torpedo_2.tres" id="3_ongux"]
+
+[sub_resource type="Animation" id="Animation_ongux"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Torpedo 2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 18.8496)]
+}
 
 [sub_resource type="Animation" id="Animation_7xtdt"]
 resource_name = "blade spin"
@@ -20,21 +36,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, -18.8496, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_ongux"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Torpedo 2:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 18.8496)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_obqh4"]
 _data = {
 &"RESET": SubResource("Animation_ongux"),
@@ -42,6 +43,7 @@ _data = {
 }
 
 [node name="Torpedo" type="Node3D"]
+script = ExtResource("1_ongux")
 
 [node name="Torpedo Model" parent="." instance=ExtResource("1_ch1v4")]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0)
@@ -50,7 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0, 0, 0)
 surface_material_override/0 = ExtResource("2_7xtdt")
 
 [node name="Torpedo 2" parent="Torpedo Model" index="1"]
-transform = Transform3D(-0.5, 2.38498e-08, 0, -2.38498e-08, -0.5, 0, 0, 0, -0.5, 0, -1.4409, 0)
+transform = Transform3D(-0.5, 2.19584e-05, 0, -2.19584e-05, -0.5, 0, 0, 0, -0.5, 0, -1.4409, 0)
 surface_material_override/0 = ExtResource("3_ongux")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Torpedo Model"]
